@@ -1,5 +1,6 @@
 import { HomePage } from './Home/Home'
 import { MinePage } from './Mine/Mine'
+import { TabItemModel } from '../model/TabItemModel'
 
 @Entry
 @Component
@@ -17,7 +18,12 @@ struct Index {
         TabContent() {
           HomePage()
         }
-        .tabBar('首页')
+        .tabBar(this.bottomTabItem({
+          'index': 0,
+          'title': '首页',
+          'selectImage': 'resources/base/media/icon_sel_home.png',
+          'unSelectImage': 'resources/base/media/icon_unsel_home.png'
+        }))
 
         TabContent() {
           HomePage()
@@ -63,22 +69,18 @@ struct Index {
       return a + b;
     }
   }
-}
 
 
-interface Person {
-  name: string;
-  age: Number
-
-  say(): void
-}
-
-class A {
-}
-
-class B extends A implements Person {
-  name = ''
-  say = () => {
+  //tabbar
+  @Builder bottomTabItem(itemModel: TabItemModel): void {
+    Column() {
+      Image(this.selectedIndex == itemModel.index ? itemModel.selectImage : itemModel.unSelectImage)
+        .height('21vp')
+        .width('21vp')
+      Text(itemModel.title)
+    }
   }
-  age = 2
 }
+
+
+
