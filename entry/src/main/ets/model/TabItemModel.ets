@@ -4,7 +4,8 @@ export class TabItemModel {
   //标题
   title: string
   //选中图片
-  selectImage: string
+  selectImage: Resource
   //未选中图片
-  unSelectImage: string
+  unSelectImage: Resource
+
 }

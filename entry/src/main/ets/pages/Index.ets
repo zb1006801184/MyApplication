@@ -21,24 +21,19 @@ struct Index {
         .tabBar(this.bottomTabItem({
           'index': 0,
           'title': '首页',
-          'selectImage': 'resources/base/media/icon_sel_home.png',
-          'unSelectImage': 'resources/base/media/icon_unsel_home.png'
+          'selectImage': $r('app.media.icon_sel_home'),
+          'unSelectImage': $r('app.media.icon_unsel_home')
         }))
-
-        TabContent() {
-          HomePage()
-        }
-        .tabBar('我的')
-
-        TabContent() {
-          HomePage()
-        }
-        .tabBar('我的')
 
         TabContent() {
           MinePage()
         }
-        .tabBar('我的')
+        .tabBar(this.bottomTabItem({
+          'index': 1,
+          'title': '我的',
+          'selectImage': $r('app.media.icon_sel_mine'),
+          'unSelectImage': $r('app.media.icon_unsel_mine')
+        }))
       }
       .barMode(BarMode.Fixed)
       .barWidth('100%')
@@ -70,14 +65,20 @@ struct Index {
     }
   }
 
-
-  //tabbar
+  //tabbar item
   @Builder bottomTabItem(itemModel: TabItemModel): void {
     Column() {
       Image(this.selectedIndex == itemModel.index ? itemModel.selectImage : itemModel.unSelectImage)
         .height('21vp')
         .width('21vp')
+        .margin({
+          bottom: '8vp'
+        })
+
       Text(itemModel.title)
+        .fontSize(12)
+        .fontColor(this.selectedIndex == itemModel.index ? Color.Red : Color.Black)
+
     }
   }
 }
