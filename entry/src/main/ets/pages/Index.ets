@@ -7,8 +7,6 @@ import { TabItemModel } from '../model/TabItemModel'
 struct Index {
   @State message: string = 'Hello World 1222'
   @State selectedIndex: number = 0
-  // @Provide homeTabSelected: number = 0
-
   build() {
     Column() {
       Tabs({
@@ -94,7 +92,6 @@ struct Index {
         .margin({
           bottom: '8vp'
         })
-
       Text(itemModel.title)
         .fontSize(12)
         .fontColor("#642b4c7e")
