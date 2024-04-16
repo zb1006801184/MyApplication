@@ -15,24 +15,44 @@ struct Index {
         index: this.selectedIndex,
         barPosition: BarPosition.End,
       }) {
-        TabContent() {
-          HomePage()
-        }
+        TabContent() {HomePage()}
         .tabBar(this.bottomTabItem({
           'index': 0,
           'title': '首页',
-          'selectImage': $r('app.media.icon_sel_home'),
-          'unSelectImage': $r('app.media.icon_unsel_home')
+          'selectImage': $r('app.media.tab_0_s'),
+          'unSelectImage': $r('app.media.tab_0_n')
         }))
 
-        TabContent() {
-          MinePage()
-        }
+        TabContent() {MinePage()}
         .tabBar(this.bottomTabItem({
           'index': 1,
+          'title': '菜单',
+          'selectImage': $r('app.media.tab_1_s'),
+          'unSelectImage': $r('app.media.tab_1_n')
+        }))
+
+        TabContent() {MinePage()}
+        .tabBar(this.bottomTabItem({
+          'index': 2,
+          'title': '订单',
+          'selectImage': $r('app.media.tab_2_s'),
+          'unSelectImage': $r('app.media.tab_2_n')
+        }))
+
+        TabContent() {MinePage()}
+        .tabBar(this.bottomTabItem({
+          'index': 3,
+          'title': '购物车',
+          'selectImage': $r('app.media.tab_3_s'),
+          'unSelectImage': $r('app.media.tab_3_n')
+        }))
+
+        TabContent() {MinePage()}
+        .tabBar(this.bottomTabItem({
+          'index': 4,
           'title': '我的',
-          'selectImage': $r('app.media.icon_sel_mine'),
-          'unSelectImage': $r('app.media.icon_unsel_mine')
+          'selectImage': $r('app.media.tab_4_s'),
+          'unSelectImage': $r('app.media.tab_4_n')
         }))
       }
       .barMode(BarMode.Fixed)
@@ -77,7 +97,7 @@ struct Index {
 
       Text(itemModel.title)
         .fontSize(12)
-        .fontColor(this.selectedIndex == itemModel.index ? Color.Red : Color.Black)
+        .fontColor("#642b4c7e")
 
     }
   }
